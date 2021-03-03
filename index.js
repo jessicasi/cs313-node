@@ -167,9 +167,9 @@ function calculateCost(req) {
     case 'package':
       if (weight <= 4) {
         cost = 4.00;
-      } else if (5 <= weight <= 8) {
+      } else if (weight <=5 && weight <= 8) {
         cost = 4.80;
-      } else if (9 <= weight <= 12) {
+      } else if (weight <=9 && weight <= 12) {
         cost = 5.50;
       } else {
         cost = 6.25;
