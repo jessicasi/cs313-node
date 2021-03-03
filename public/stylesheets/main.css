@@ -42,31 +42,44 @@
         text-align: center;
       }
 
+      p{
+        font-size: 1.4rem;
+      }
+
       h2 {
         margin-top: 2px;
+  
       }
+
+      form {
+       text-align: center;
+
+      }
+
       input, select {
         margin-bottom: 10px;
       }
 
       input[type=submit]{
-        margin-left:45%;
         margin-top: 10px;
         background: #698899;
         color: white;
         padding: 5px;
+        font-size: 15px;
       }
 
       button{
-        margin-left:25%;
+        margin-left:35%;
+        margin-right: 35%;
         margin-top: 10px;
         background: #698899;
         color: white;
         padding: 5px;
+        font-size: 25px;
       }
 
       .bold {
         font-weight: bold;
-        font-size: 1.13rem;
+        font-size: 1.5rem;
         margin-right: 5px;
       }
