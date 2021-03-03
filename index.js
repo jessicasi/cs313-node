@@ -31,7 +31,14 @@ app.get("/math_service", (req, res) => {
   })
   console.log(`math service: ${json}`);
   res.end(json);
-})
+});
+
+app.get("/post-rates", (req, res) => {
+  var cost = calculateCost(req);
+  res.render("pages/response", {
+    answer: cost
+  });
+});
 
 
 // async function () {
@@ -95,4 +102,81 @@ function solveMath(req) {
   //   answer: result 
   // })
   return result;
+}
+
+function calculateCost(req) {
+  var weight = req.query.weight;
+  var type = req.query.type;
+  var cost;
+
+
+  switch (type) {
+    case 'stamped':
+      if (weight <= 1) {
+        cost = .55;
+      } else if (weight <= 2) {
+        cost = .75;
+      } else if (weight <= 3) {
+        cost = .95;
+      } else {
+        cost = 1.15;
+      }
+      break;
+
+    case 'metered':
+      if (weight <= 1) {
+        cost = .51;
+      } else if (weight <= 2) {
+        cost = .71;
+      } else if (weight <= 3) {
+        cost = .91;
+      } else {
+        cost = 1.11;
+      }
+      break;
+    case 'flats':
+      if (weight <= 1) {
+        cost = 1.00;
+      } else if (weight <= 2) {
+        cost = 1.20;
+      } else if (weight <= 3) {
+        cost = 1.40;
+      } else if (weight <= 4) {
+        cost = 1.60;
+      } else if (weight <= 5) {
+        cost = 1.80;
+      } else if (weight <= 6) {
+        cost = 2.00;
+      } else if (weight <= 7) {
+        cost = 2.20;
+      } else if (weight <= 8) {
+        cost = 2.40;
+      } else if (weight <= 9) {
+        cost = 2.60;
+      } else if (weight <= 10) {
+        cost = 2.80;
+      } else if (weight <= 11) {
+        cost = 3.00;
+      } else if (weight <= 12) {
+        cost = 3.20;
+      } else {
+        cost = 3.40;
+      }
+      break;
+
+    case 'package':
+      if (weight <= 4) {
+        cost = 4.00;
+      } else if (5 <= weight <= 8) {
+        cost = 4.80;
+      } else if (9 <= weight <= 12) {
+        cost = 5.50;
+      } else {
+        cost = 6.25;
+      }
+      break;
+  }
+
+
+  return cost;
 }
