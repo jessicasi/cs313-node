@@ -8,17 +8,6 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.get('/', (req, res) => res.render('pages/index'))
 
-// I added this to create a page for the assignment
-// .get('/math', (req, res) => res.render('pages/teamwork'))
-// app.get('/math', (req, res) => {
-//   solveMath(req, (answer) => {
-//     res.render('pages/results', {
-//       answer: result
-//     })
-//   }
-//   )
-// })
-
 app.post(function (req, res, next) {
   next();
 });

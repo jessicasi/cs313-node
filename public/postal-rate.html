@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Postal Rate Calculator</h1>
+        <div>
+            <h2>Determining Your Postage Cost</h2>
+            <form action="/post-rates" method="GET" id="myForm">
+                <label for="weight">Weight of package in oz (round up)
+                </label>
+                <input type="text" name="weight" required>
+                <select name="type">
+                    <option value="stamped">Letters (Stamped)</option>
+                    <option value="metered">Letters (Metered)</option>
+                    <option value="flats">Large Envelopes (Flats)</option>
+                    <option value="package">First-Class Package Service</option>
+                </select>
+                <input type="submit" name="submit" value="Cost">
+                <!-- <button name="ajax" value="AJAX" onclick="getJson()">Get JSON</button> -->
+            </form>
+            <div id='result'>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
