@@ -36,7 +36,8 @@ app.get("/math_service", (req, res) => {
 app.get("/post-rates", (req, res) => {
   var cost = calculateCost(req);
   res.render("pages/response", {
-    answer: cost
+    answer: cost,
+    package: req.query.type
   });
 });
 
@@ -111,68 +112,68 @@ function calculateCost(req) {
 
 
   switch (type) {
-    case 'stamped':
+    case 'Letter-Stamped':
       if (weight <= 1) {
         cost = .55;
       } else if (weight <= 2) {
-        cost = .75;
+        cost = '$.75';
       } else if (weight <= 3) {
-        cost = .95;
+        cost = '$.95';
       } else {
-        cost = 1.15;
+        cost = '$1.15';
       }
       break;
 
-    case 'metered':
+    case 'Letter-Metered':
       if (weight <= 1) {
-        cost = .51;
+        cost = '$.51';
       } else if (weight <= 2) {
-        cost = .71;
+        cost = '$.71';
       } else if (weight <= 3) {
-        cost = .91;
+        cost = '$.91';
       } else {
-        cost = 1.11;
+        cost = '$1.11';
       }
       break;
-    case 'flats':
+    case 'Letter-Flat':
       if (weight <= 1) {
-        cost = 1.00;
+        cost = '$1.00';
       } else if (weight <= 2) {
-        cost = 1.20;
+        cost = '$1.20';
       } else if (weight <= 3) {
-        cost = 1.40;
+        cost = '$1.40';
       } else if (weight <= 4) {
-        cost = 1.60;
+        cost = '$1.60';
       } else if (weight <= 5) {
-        cost = 1.80;
+        cost = '$1.80';
       } else if (weight <= 6) {
-        cost = 2.00;
+        cost = '$2.00';
       } else if (weight <= 7) {
-        cost = 2.20;
+        cost = '$2.20';
       } else if (weight <= 8) {
-        cost = 2.40;
+        cost = '$2.40';
       } else if (weight <= 9) {
-        cost = 2.60;
+        cost = '$2.60';
       } else if (weight <= 10) {
-        cost = 2.80;
+        cost = '$2.80';
       } else if (weight <= 11) {
-        cost = 3.00;
+        cost = '$3.00';
       } else if (weight <= 12) {
-        cost = 3.20;
+        cost = '$3.20';
       } else {
-        cost = 3.40;
+        cost = '$3.40';
       }
       break;
 
-    case 'package':
+    case 'Package':
       if (weight <= 4) {
-        cost = 4.00;
+        cost = '$4.00';
       } else if (weight <=5 && weight <= 8) {
-        cost = 4.80;
+        cost = '$4.80';
       } else if (weight <=9 && weight <= 12) {
-        cost = 5.50;
+        cost = '$5.50';
       } else {
-        cost = 6.25;
+        cost = '$6.25';
       }
       break;
   }

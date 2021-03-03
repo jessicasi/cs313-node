@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/main.css">
     <title>Postal Cost Results</title>
 </head>
 <body>
-    <h1>Postal Rate</h1>
-    <%= answer %>
+    <h1>Cost to Mail</h1>
+    <div class="container">
+        <h2>Details</h2>
+    <p> <span class="bold">Package Type:</span> <%= package %></p>
+    <p> <span class="bold">Cost to Mail: </span><%= answer %></p>
+    </div>
 </body>
 </html>
