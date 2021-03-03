@@ -34,7 +34,15 @@ app.get("/math_service", (req, res) => {
 });
 
 app.get("/post-rates", (req, res) => {
+  if (isNaN(req.query.weight)) {
+    var message = "Please enter a numerical value in the weight box";
+    res.render("pages/response", {
+      answer: message,
+      package: "Error"
+    });
+  }
   var cost = calculateCost(req);
+
   res.render("pages/response", {
     answer: cost,
     package: req.query.type
@@ -168,13 +176,15 @@ function calculateCost(req) {
     case 'Package':
       if (weight <= 4) {
         cost = '$4.00';
-      } else if (weight <=5 && weight <= 8) {
+      } else if (weight <= 5 && weight <= 8) {
         cost = '$4.80';
-      } else if (weight <=9 && weight <= 12) {
+      } else if (weight <= 9 && weight <= 12) {
         cost = '$5.50';
       } else {
         cost = '$6.25';
       }
+      break;
+    default:
       break;
   }
 
